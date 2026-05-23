@@ -190,6 +190,7 @@
         </div>
         
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+
             <a href="#" data-page="dashboard" class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200">
                 <i class="fa-solid fa-chart-line text-indigo-600 w-5"></i>
                 <span class="font-medium">Dashboard</span>
@@ -214,6 +215,7 @@
                 <i class="fa-solid fa-chart-pie text-gray-500 w-5"></i>
                 <span class="font-medium">Reports</span>
             </a>
+            
         </nav>
         
         
@@ -1810,6 +1812,7 @@ let currentCustomerEditId = null;
 // initData() function la idha add pannu
 function initData() {
     const savedProducts = localStorage.getItem('inventory_products');
+
     const savedInvoices = localStorage.getItem('inventory_invoices');
     const savedCustomers = localStorage.getItem('inventory_customers');
         if (savedCustomers) {
@@ -1828,6 +1831,61 @@ function initData() {
             lowStock: Number(p.lowStock) || 10
         }));
     } else {
+        products = [
+            {
+                id: 1,
+                name: 'Premium Coffee Beans',
+                sku: 'COF-001-2024',
+                category: 'Beverages',
+                stock: 45,
+                cost: 12.50,
+                price: 24.99,
+                mfg: '2024-01-15',
+                exp: '2025-01-15',
+                lowStock: 10,
+                unit: 'kg'
+            },
+            {
+                id: 2,
+                name: 'Organic Green Tea',
+                sku: 'TEA-002-2024',
+                category: 'Beverages',
+                stock: 8,
+                cost: 8.00,
+                price: 15.99,
+                mfg: '2024-03-10',
+                exp: '2024-12-10',
+                lowStock: 15,
+                unit: 'box'
+            },
+            {
+                id: 3,
+                name: 'Vitamin C Tablets',
+                sku: 'VIT-003-2024',
+                category: 'Health',
+                stock: 120,
+                cost: 5.00,
+                price: 12.99,
+                mfg: '2024-02-01',
+                exp: '2026-02-01',
+                lowStock: 20,
+                unit: 'pcs'
+            },
+            {
+                id: 4,
+                name: 'Protein Powder',
+                sku: 'PRO-004-2024',
+                category: 'Supplements',
+                stock: 25,
+                cost: 35.00,
+                price: 59.99,
+                mfg: '2024-05-20',
+                exp: '2024-11-20',
+                lowStock: 10,
+                unit: 'kg'
+            }
+        ];
+        saveProducts();
         //... existing sample data
     }
     
@@ -1967,7 +2025,7 @@ function deleteCustomer(id) {
 }
 
 // Initialize
-initData();
+document.addEventListener('DOMContentLoaded', initData);
 </script>
 </body>
 </html>
